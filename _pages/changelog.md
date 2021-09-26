@@ -4,62 +4,48 @@ title: What's New
 include_in_header: true
 ---
 
-# Changelog
-Here you can keep a changelog for your app. Edit the markdown based CHANGELOG.md which is located in the _pages directory. The changelog below is simply an example changelog that serves to exemplify how the markdown can be used. You can be as creative as you want with the markdown.
+# Updates
+Here you will find a keep a changelog for the app. Any new changes will be shared here.
+
+Please also sign up for our email list: 
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#ffffff; clear:left; font:18px Helvetica,Arial,sans-serif; width:100%;}
+	#mc_embed_signup  input {
+ 	   width: 100%;
+		}
+	#mc_embed_signup .button {
+    	background-color: #2F8064;
+    	color: #ffffff;
+	width : 100%;
+	font: 20px;
+    	margin: 0 auto;
+align: left;
+	}
+
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://katzenjammer-games.us1.list-manage.com/subscribe/post?u=c99a6a404ec309b16149a078d&amp;id=4a5608883c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c99a6a404ec309b16149a078d_4a5608883c" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+
 
 <br>
 
 ### `Latest`
-# **Version 2.0**
-This is the first update to our app. Jeez **goodness** by kept more sensually a much far proper exotically precise [here is a link](https://www.google.com) and and illicit hey uninspiring the more sat honey knelt before before bearish bowed lorikeet wolf grandly instead diligently and rhinoceros imperative.
+# **Version 0.1**
+We are currently working on the first version of our app. We will post some more information on releases and where to download very soon!
 
-#### What's New
-- Much far proper exotically precise unaccountable.
-- [Changes to Privacy Policy](/privacypolicy)
-
-#### Bug Fixes
-- Much far proper exotically precise unaccountable.
-- [Changes to Privacy Policy](/privacypolicy)
-
-<br>
-
-### **Version 2.1**
-Abnormal and formidable against much the before well improper more spent far heron amicably iguana plainly swanky upon mammoth **much paid darn some tapir** some glared save crud more regarding one accommodating gosh cannily and on hungry a more goodness inside merry yikes wedded versus because some a a a shined anteater goldfinch jeez up so and this this a.
-
-#### What's New
-- Much far proper exotically precise unaccountable.
-- Much far proper exotically precise unaccountable.
-
-<br>
-
-________
-<br>
-
-### `Initial Release`
-# **Version 1.0**
-Cracked a more and iguana a without some echidna a abnormal hello and beat thanks jeepers gnu jeepers until up depending for drooled awfully angelfish relentless much a well wasp some in impala darn and overate greedily wow kookaburra beneath much wistful fluid until and lemming less armadillo redoubtable after much capybara wow that hence interbred timorous loosely oh divisively wherever because jeepers until since as that goodness roadrunner insanely belated physic jeepers hey jeepers much the beside steadfastly up toward indubitably this goodness playful.
-
-<br>
-
-## **Version 1.1**
-Abnormal and formidable against much the before well improper more spent far heron amicably iguana plainly swanky upon mammoth **much paid darn some tapir** some glared save crud more regarding one accommodating gosh cannily and on hungry a more goodness inside merry yikes wedded versus because some a a a shined anteater goldfinch jeez up so and this this a.
-
-#### What's New
-- Much far proper exotically precise unaccountable.
-- Much far proper exotically precise unaccountable.
-
-<br>
-
-## Version 1.0.1
-That wow robin one and gosh audibly darn that variously less across softly awakened under affectingly wildebeest from jeepers far contemplated and indisputably clung jeepers much mistaken some after mumbled hey certain neatly far alas more trod the swelled rolled permissively so save pert the tapir paradoxical off so then juggled crud a however overslept vehemently kept indisputably anteater walked alas or into.
-
-#### What's New
-- Much far proper exotically precise unaccountable.
-- Much far proper exotically precise unaccountable.
-- Much far proper exotically precise unaccountable.
-
-#### Bug Fixes
-- Improved user sign up experience.
-- Unlike deliberately zebra hen oh jeez understandable. Alas and quit oh snooty unlike deliberately.
-
-<br>

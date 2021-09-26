@@ -1,32 +1,32 @@
 #page title -- bundle exec jekyll serve
-page_title                                :                                           # Automatically populates with app name if not set and if iOS app ID is set. Otherwise enter manually.
+page_title                                : Katzenjammer!                                          # Automatically populates with app name if not set and if iOS app ID is set. Otherwise enter manually.
 
 # App Info
-ios_app_id                                : 1234793120                                # Required. Enter iOS app ID to automatically populate name, price and icons (e.g. 718043190).
+ios_app_id                                : #1234793120                                # Required. Enter iOS app ID to automatically populate name, price and icons (e.g. 718043190).
 
 appstore_link                             :                                           # Automatically populates if not set and if iOS app ID is set. Otherwise enter manually.
 playstore_link                            :                                           # Enter Google Play Store URL.
-presskit_download_link                    : https://gaygarfield.com                     # Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file). 
+#presskit_download_link                    : mailto:katzenjammer.games.ltd@gmail.com                     # Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file). 
                                                                                       # Or upload your press kit file to assets and set path accordingly (e.g. "assets/your_press_kit.zip").
 
 app_icon                                  : assets/appicon.png                      # Automatically populates if not set and if iOS app ID is set.  Otherwise enter path to icon file manually.
-app_name                                  : Katzenjammer                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
-app_price                                 : $25 CAD                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
-app_description                           : An AR Drinking Game. Your Friends. Your Rules. Your Game
+app_name                                  : Katzenjammer!                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
+app_price                                 :                                            # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
+app_description                           : An AR Party Game. Your Friends. Your Rules. Your Game.
 
-enable_smart_app_banner                   : true                                      # Set to true to show a smart app banner at top of page on mobile devices.
+enable_smart_app_banner                   : false                                      # Set to true to show a smart app banner at top of page on mobile devices.
 
 
 
 # Information About Yourself
-your_name                                 : Ryan Stewart                                
+your_name                                 : Katzenjammer Games Ltd.                                
 your_link                                 : https://katzenjammer-games.com                     
 your_city                                 : Canada                                
 email_address                             : katzenjammer.games.ltd@gmail.com
 facebook_username                         :                                           
 instagram_username                        : 
 twitter_username                          : 
-github_username                           : ryanstewart1996
+github_username                           : 
 youtube_username                          :
 
 
@@ -35,7 +35,7 @@ youtube_username                          :
 features                                  :
 
   - title                                 : Card Game + Tech Magic
-    description                           : Katzenjammer is a card game that can only be described as a miscarriage between Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
+    description                           : Katzenjammer is a card game that can only be described as a cosmic gumbo of Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
     fontawesome_icon_name                 : magic
     
   - title                                 : A Brand New Party Game Experience
@@ -46,12 +46,12 @@ features                                  :
     description                           : Use the power of Augmented Reality to play your game. Create new decks so your game never gets stale. With AR no one knows what dares are on each card until viewed throught the app.
     fontawesome_icon_name                 : play-circle
 
-  - title                                 : Replayable
-    description                           : Record your games with ease. Capture the craziest moments from your game to use as future blackmail.
+  - title                                 : Capture your Memories
+    description                           : Record your games with ease. Capture the craziest moments from your game and share them with the friend who bailed.
     fontawesome_icon_name                 : sync
 
   - title                                 : Easy to Tweak
-    description                           : Create new dares with ease. Depednign on whos playing, you can select the type of memories you want to make. With private inputs no one knows what dares everyone else wrote until you scan the cards using AR.
+    description                           : Create new dares with ease. Depending on whos playing, you can select the type of memories you want to make. With private inputs no one knows what dares everyone else wrote until you scan the cards using AR.
     fontawesome_icon_name                 : adjust
   
   - title                                 : Feature List
@@ -89,7 +89,7 @@ device_color                              : black                               
 
 body_background_color                     : "#3689C6"
 
-link_color                                : "#1d63ea"
+link_color                                : "#FFF1F2"
 
 app_title_color                           : "#ffffff"
 app_price_color                           : "#ffffff"
@@ -98,13 +98,13 @@ app_description_color                     : "#ffffff"
 feature_title_color                       : "#ffffff"
 feature_text_color                        : "#ffffff"
 
-feature_icons_foreground_color            : "#57B27B"
+feature_icons_foreground_color            : "#2F8064"
 feature_icons_background_color            : "#e6e6e6"
 
-social_icons_foreground_color             : "#666666"
+social_icons_foreground_color             : "#2F8064"
 social_icons_background_color             : "#e6e6e6"
 
-footer_text_color                         : "#666666"
+footer_text_color                         : "#FFF1F2"
 
 
 

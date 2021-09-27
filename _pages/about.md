@@ -11,7 +11,7 @@ September 26 2020
 
 Katzenjammer is a card game that can only be described as a a cosmic gumbo of Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
 
-## How it work
+## How it works
 Players take turns selecting cards from their hand in a high risk betting match until the game is over or a card prompts a dare. Since each card corresponds to a dare, the player wants to have as few cards in their hand as possible.
 
 Unlike similar card games, where the dares on the cards are soft to avoid liability, we put the responsibility on our players to not kill themselves.

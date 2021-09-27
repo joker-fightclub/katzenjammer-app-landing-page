@@ -7,7 +7,7 @@ include_in_header: true
 **Last Updated**  
 September 26 2020
 
-# About Katzenjammer!
+# About Katzenjammer
 
 Katzenjammer is a card game that can only be described as a a cosmic gumbo of Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
 

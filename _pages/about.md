@@ -5,7 +5,7 @@ include_in_header: true
 ---
 
 **Last Updated**  
-September 26 2021
+November 29 2021
 
 # About Katzenjammer
 

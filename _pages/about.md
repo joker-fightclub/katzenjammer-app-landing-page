@@ -41,7 +41,7 @@ The company’s sole project (for now…) is its card game of the same namesake:
 
 
 ## Privacy Policy
-Katzenjammer Games Ltd. does not collect any personal information regarding gits users.
-The companion app for the card gams is entirely offline, and does not send any data back to us. 
-this policy will update to reflect any (unlikely) changes.
-KAtzenjammer Games Ltd. has not, and will never, use the email lists it has obtained for any purpose other than game updates.
+Katzenjammer Games Ltd. does not collect any personal information regarding its users.
+The companion app for the card game is entirely offline, and does not send any data back to us.
+Katzenjammer Games Ltd. has not, and will never, use the email lists it has obtained for any purpose other than game updates.
+This policy will update to reflect any (unlikely) changes.

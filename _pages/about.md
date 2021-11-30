@@ -28,7 +28,7 @@ If you like card games and aren't slick enough to peer pressure your friends int
 
 
 
-# About Katzenjammer Games Ltd.
+## About Katzenjammer Games Ltd.
 Katzenjammer Games is an indie game studio based in Edmonton, Alberta that seeks to combine the social interaction of tabletop cards games with Augmented Reality to create new unique social experiences for our users.
 
 The company’s sole project (for now…) is its card game of the same namesake: **Katzenjammer!**
@@ -38,3 +38,10 @@ The company’s sole project (for now…) is its card game of the same namesake:
 
 **Please note:** This project is in early development and there will be much more information available soon!
 <br>
+
+
+## Privacy Policy
+Katzenjammer Games Ltd. does not collect any personal information regarding gits users.
+The companion app for the card gams is entirely offline, and does not send any data back to us. 
+this policy will update to reflect any (unlikely) changes.
+KAtzenjammer Games Ltd. has not, and will never, use the email lists it has obtained for any purpose other than game updates.

@@ -3,6 +3,8 @@ layout: page
 title: What's New
 include_in_header: true
 ---
+**Last Updated**  
+December 14 2021
 
 # Updates
 Here you will find a keep a changelog for the app. Any new changes will be shared here.
@@ -42,6 +44,13 @@ align: left;
 
 <!--End mc_embed_signup-->
 
+
+<br>
+
+### `Latest`
+# **Version 0.2**
+December 14 2021
+We have finally recieved a brand new deck of cards that integrates the new AR marker design! This new design is more reliable with scanning and each design is more unique. We also just got our Testflight build up and running. Expect more updates and a Beta Print and Play version soon!
 
 <br>
 

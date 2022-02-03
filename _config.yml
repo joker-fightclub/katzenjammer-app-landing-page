@@ -10,7 +10,7 @@ playstore_link                            :                                     
                                                                                       # Or upload your press kit file to assets and set path accordingly (e.g. "assets/your_press_kit.zip").
 
 app_icon                                  : assets/appicon.png                      # Automatically populates if not set and if iOS app ID is set.  Otherwise enter path to icon file manually.
-app_name                                  : Katzenjammer!                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
+app_name                                  : Katzenjammer                                          # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
 app_price                                 :                                            # Automatically populates if not set and if iOS app ID is set.  Otherwise enter manually.
 app_description                           : An AR Party Game. Your Friends. Your Rules. Your Game.
 
@@ -98,10 +98,10 @@ app_description_color                     : "#ffffff"
 feature_title_color                       : "#ffffff"
 feature_text_color                        : "#ffffff"
 
-feature_icons_foreground_color            : "#2F8064"
+feature_icons_foreground_color            : "#3689C6"
 feature_icons_background_color            : "#e6e6e6"
 
-social_icons_foreground_color             : "#2F8064"
+social_icons_foreground_color             : "#3689C6"
 social_icons_background_color             : "#e6e6e6"
 
 footer_text_color                         : "#FFF1F2"

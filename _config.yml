@@ -43,7 +43,7 @@ features                                  :
     fontawesome_icon_name                 : mobile
 
   - title                                 : Augmented Reality
-    description                           : Use the power of Augmented Reality to play your game. Create new decks so your game never gets stale. With AR no one knows what dares are on each card until viewed throught the app.
+    description                           : Use the power of Augmented Reality to play your game. With private inputs no one knows what dares everyone else wrote until you view the cards through the app.
     fontawesome_icon_name                 : play-circle
 
   - title                                 : Capture your Memories
@@ -51,7 +51,7 @@ features                                  :
     fontawesome_icon_name                 : sync
 
   - title                                 : Easy to Tweak
-    description                           : Create new dares with ease. Depending on whos playing, you can select the type of memories you want to make. With private inputs no one knows what dares everyone else wrote until you scan the cards using AR.
+    description                           : Create new decks so your game never gets stale. Depending on whos playing, you can select the type of memories you want to make. 
     fontawesome_icon_name                 : adjust
   
   - title                                 : Feature List

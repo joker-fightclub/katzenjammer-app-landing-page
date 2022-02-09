@@ -4,7 +4,7 @@ title: What's New
 include_in_header: true
 ---
 **Last Updated**  
-December 14 2021
+February 8 2022
 
 # Updates
 Here you will find a keep a changelog for the app. Any new changes will be shared here.
@@ -49,12 +49,20 @@ align: left;
 
 ### `Latest`
 # **Version 0.2**
+February 8 2022
+<br>
+Happy belated new year everyone! Not much for updates other than housekeeping as we prepare for our beta launch! Keep an eye out for updates via our email list and a link to download a print and play from our website in the coming months!
+
+
+### `Latest`
+# **Version 0.2**
 December 14 2021
+<br>
 We have finally recieved a brand new deck of cards that integrates the new AR marker design! This new design is more reliable with scanning and each design is more unique. We also just got our Testflight build up and running. Expect more updates and a Beta Print and Play version soon!
 
 <br>
 
-### `Latest`
+
 # **Version 0.1**
 We are currently working on the first version of our app. We will post some more information on releases and where to download very soon!
 

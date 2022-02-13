@@ -7,7 +7,7 @@ include_in_header: true
 February 8 2022
 
 # Updates
-Here you will find a keep a changelog for the app. Any new changes will be shared here.
+Here you will find a changelog for the app. Any new changes will be shared here.
 
 Please also sign up for our email list: 
 

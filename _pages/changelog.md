@@ -48,13 +48,20 @@ align: left;
 <br>
 
 ### `Latest`
-# **Version 0.2**
+# **Version 0.3**
+February 7 2023
+<br>
+How cow! A year has flown by since the last update. We are happy to share that some very important features for the app are finally working. The ability to record and share dares filmed using the app now works without having to use your smartphones screen record function. We have also added some some quality of life improvements for generating new decks.
+<br>
+We are also excited to announce that we will be participating at [GOBfest 2023](https://www.gobfest.ca/) in Edmonton this March as part of the protoype alley!
+
+
+### `Previous`
+# **Version 0.3**
 February 8 2022
 <br>
 Happy belated new year everyone! Not much for updates other than housekeeping as we prepare for our beta launch! Keep an eye out for updates via our email list and a link to download a print and play from our website in the coming months!
 
-
-### `Latest`
 # **Version 0.2**
 December 14 2021
 <br>

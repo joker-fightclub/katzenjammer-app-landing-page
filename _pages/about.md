@@ -5,26 +5,28 @@ include_in_header: true
 ---
 
 **Last Updated**  
-November 29 2021
+February 7 2023
 
 # About Katzenjammer
 
-Katzenjammer is a card game that can only be described as a cosmic gumbo of Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
+ Katzenjammer is a one-of-a-kind card game that blends the excitement of Uno, Truth or Dare, and Yu-Gi-Oh. The game is played using a deck of cards that contain dares and action cards, with a unique twist - the dares are created by the players themselves.
+
 
 ## How it works
-Players take turns selecting cards from their hand in a high risk betting match until the game is over or a card prompts a dare. Since each card corresponds to a dare, the player wants to have as few cards in their hand as possible.
 
-Unlike similar card games, where the dares on the cards are soft to avoid liability, we put the responsibility on our players to not kill themselves.
+In Katzenjammer, players take turns selecting cards from their hand in a high-stakes betting match. Each card corresponds to a dare, the severity of which is indicated by its color. However, the players don't know what the dare is until they use a custom mobile app with Augmented Reality to reveal it.
 
-Each card contains a marker that reveals the dare when viewed through a custom mobile app using AR. All dares are input by the players, so the stakes are as high as your friends' respect for your dignity is low.  Players do not know what dare is on each card, but know the severity based on card color.
+What sets Katzenjammer apart is that the dares on the cards are input by the players using a companion app. This means that the stakes are as high as your friends' respect for your dignity allows, and the embarrassment factor is off the charts.
 
-The deck is made up of cards containing dares and action cards, which either help to eliminate cards from your hand, force you to draw more cards, or perform dares.
-Each player also gets two **MONSTER CARDS** - which can be used throughout the game  to screw over opponents or protect you from nasty dares.
+One of the unique features of the companion app is the ability to create different collections of dares, also known as dare decks. This allows the game to never get stale, and it can adapt to different playing scenarios. For example, you could have a dare deck for a relaxing Friday night with friends or one specifically tailored to a camping trip, with dares that take into account the outdoor environment.
 
-Once the deck is empty and the game is over, all players must read the cards left in their hand and perform the dares on them, resulting in embarrassment and second-hand embarrassment.
+Each player starts with two **Monster Cards** that can be used throughout the game to sabotage opponents or protect themselves from the consequences of the dares. The game ends when the deck is empty, and players must perform the dares on the cards left in their hand.
 
-If you like card games and aren't slick enough to peer pressure your friends into doing dumb stuff, please consider helping us bring this game to life.
+Katzenjammer is a hilarious and interactive card game that will have you and your friends laughing, cringing, and having a great time. Get ready for the ultimate player-driven game night!
 
+If you're a fan of card games we would love to have you subscribe to our email list to recieve updates about when its available for beta testing and wide release. With your help, we can bring this hilarious and interactive game to life. Get ready for the ultimate player-driven game night!
+
+18+ due to naughty language on some cards.
 
 
 
@@ -33,7 +35,7 @@ Katzenjammer Games is an indie game studio that seeks to combine the social inte
 
 The company’s sole project (for now…) is its card game of the same namesake: **Katzenjammer!**
 
- The idea for this project sprung up from the initial pandemic lockdowns in March 2020, during which the Katzenjammer team spent its free time learning to develop AR and mobile apps.
+The idea for this project sprung up from the initial pandemic lockdowns in March 2020, during which the Katzenjammer team spent its free time learning to develop AR and mobile apps.
 
 
 **Please note:** This project is in early development and there will be much more information available soon!

@@ -48,7 +48,7 @@ align: left;
 <br>
 
 ### `Latest`
-# **Version 0.3**
+# **Version 0.4**
 February 7 2023
 <br>
 How cow! A year has flown by since the last update. We are happy to share that some very important features for the app are finally working. The ability to record and share dares filmed using the app now works without having to use your smartphones screen record function. We have also added some some quality of life improvements for generating new decks.

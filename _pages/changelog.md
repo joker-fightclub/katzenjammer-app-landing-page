@@ -54,7 +54,7 @@ February 7 2023
 How cow! A year has flown by since the last update. We are happy to share that some very important features for the app are finally working. The ability to record and share dares filmed using the app now works without having to use your smartphones screen record function. We have also added some some quality of life improvements for generating new decks.
 
 <br>
-We are also excited to announce that we will be participating at GOBfest 2023 in Edmonton this March as part of the protoype alley! <https://www.gobfest.ca/>
+We are also excited to announce that we will be participating at [GOBfest 2023](https://www.gobfest.ca/) $`\textcolor{blue}{\text{[GOBfest 2023](https://www.gobfest.ca/)}}`$  in Edmonton this March as part of the protoype alley!
 
 
 ### `Previous`

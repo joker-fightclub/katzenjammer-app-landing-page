@@ -4,7 +4,7 @@ title: What's New
 include_in_header: true
 ---
 **Last Updated**  
-February 8 2022
+February 8 2023
 
 # Updates
 Here you will find a changelog for the app. Any new changes will be shared here.

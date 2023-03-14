@@ -20,11 +20,11 @@ What sets Katzenjammer apart is that the dares on the cards are input by the pla
 
 One of the unique features of the companion app is the ability to create different collections of dares, also known as dare decks. This allows the game to never get stale, and it can adapt to different playing scenarios. For example, you could have a dare deck for a relaxing Friday night with friends or one specifically tailored to a camping trip, with dares that take into account the outdoor environment.
 
-Each player starts with two **Monster Cards** that can be used throughout the game to sabotage opponents or protect themselves from the consequences of the dares. The game ends when the deck is empty, and players must perform the dares on the cards left in their hand.
+Each player starts with two **Monster Cards** that can be used throughout the game to sabotage opponents or protect themselves from the consequences of the dares. The game ends when the draw deck is empty, and players must perform the dares on the cards left in their hand.
 
 Katzenjammer is a hilarious and interactive card game that will have you and your friends laughing, cringing, and having a great time. Get ready for the ultimate player-driven game night!
 
-If you're a fan of card games we would love to have you subscribe to our email list to recieve updates about when its available for beta testing and wide release. With your help, we can bring this hilarious and interactive game to life. Get ready for the ultimate player-driven game night!
+If you're a fan of card games we would love to have you subscribe to our email list to recieve updates about when its available for beta testing and wide release. With your help, we can bring this hilarious and interactive game to life.
 
 18+ due to naughty language on some cards.
 

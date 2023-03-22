@@ -4,3 +4,5 @@ _site
 Gemfile.lock
 .DS_Store
 _pages/AR.md
+assets/combined_badge.kra~
+.DS_Store

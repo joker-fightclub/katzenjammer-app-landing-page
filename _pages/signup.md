@@ -48,7 +48,7 @@ Thank you for singing up to our email list!
     <img src="assets/Katzenjammer Icon Remake Rounded Corners.png" alt="GCCLogo" width="300" height="">
   </a>
 
-  <h3 align="center">Katzenjammer Games Ltd./h3>
+  <h3 align="center">Katzenjammer Games Ltd.</h3>
 </p>
 
 <br/>

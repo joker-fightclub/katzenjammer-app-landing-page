@@ -44,10 +44,18 @@ Thank you for singing up to our email list!
 
 <br/>
 <p align="center">
+  <a href="https://katzenjammer-games.ca/">
+    <img src="pages/assets/Katzenjammer Icon Remake Rounded Corners.png" alt="GCCLogo" width="300" height="">
+  </a>
+
+  <h3 align="center">Katzenjammer Games Ltd./h3>
+</p>
+
+<br/>
+<p align="center">
   <a href="https://gameconcanada.com/">
     <img src="pages/assets/gamecon logo.jpg" alt="GCCLogo" width="300" height="">
   </a>
 
-  <h3 align="center">Oi m8, welcome to Zniggy!</h3>
-
+  <h3 align="center">Game Con Canada</h3>
 </p>

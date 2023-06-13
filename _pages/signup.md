@@ -54,7 +54,7 @@ Thank you for singing up to our email list!
 <br/>
 <p align="center">
   <a href="https://gameconcanada.com/">
-    <img src="/assets/gamecon logo.jpg" alt="GCCLogo" width="300" height="">
+    <img src="/assets/gamecon logo.png" alt="GCCLogo" width="300" height="">
   </a>
 
   <h3 align="center">Game Con Canada</h3>

@@ -17,7 +17,7 @@ Thank you for signing up!
 <div id="mc_embed_signup">
     <form action="https://katzenjammer-games.us1.list-manage.com/subscribe/post?u=c99a6a404ec309b16149a078d&amp;id=4a5608883c&amp;f_id=00958ae5f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
         <div id="mc_embed_signup_scroll">
-        <h2>Subscribe to the Katzenjammer Games</h2>
+        <h2>Subscribe to Katzenjammer Games</h2>
         <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 <div class="mc-field-group">
 	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>

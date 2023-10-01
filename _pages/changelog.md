@@ -4,7 +4,7 @@ title: What's New
 include_in_header: true
 ---
 **Last Updated**  
-February 8 2023
+October 1 2023
 
 # Updates
 Here you will find a changelog for the app. Any new changes will be shared here.
@@ -48,6 +48,15 @@ align: left;
 <br>
 
 ### `Latest`
+# **Version 0.5**
+October 1 2023
+<br>
+What a bustling summer we've had! We thoroughly enjoyed attending various conventions, including Game Con Canada in June. The feedback we've received about our game has been invaluable. We're eager to reach out to our email subscribers soon to recruit beta testers.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Huge thanks to everyone who helped put together this event and to everyone who showed up to support indie game developers! <a href="https://t.co/qUoumDgzuL">https://t.co/qUoumDgzuL</a></p>&mdash; Katzenjammer Games (@KatzenjammerG) <a href="https://twitter.com/KatzenjammerG/status/1673770544838365190?ref_src=twsrc%5Etfw">June 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+### `Previous`
+
 # **Version 0.4**
 February 7 2023
 <br>
@@ -56,8 +65,6 @@ Holy cow! A year has flown by since the last update. We are happy to share that 
 <br>
 We are also excited to announce that we will be participating at GOBfest 2023 in Edmonton this March as part of the protoype alley! More info here: https://www.gobfest.ca/
 
-
-### `Previous`
 # **Version 0.3**
 February 8 2022
 <br>

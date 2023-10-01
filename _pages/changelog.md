@@ -49,24 +49,20 @@ align: left;
 
 ### `Latest`
 # **October 1 2023**
-<br>
 What a bustling summer we've had! We thoroughly enjoyed attending various conventions, including Game Con Canada in June. The feedback we've received about our game has been invaluable. We're eager to reach out to our email subscribers soon to recruit beta testers.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Huge thanks to everyone who helped put together this event and to everyone who showed up to support indie game developers! <a href="https://t.co/qUoumDgzuL">https://t.co/qUoumDgzuL</a></p>&mdash; Katzenjammer Games (@KatzenjammerG) <a href="https://twitter.com/KatzenjammerG/status/1673770544838365190?ref_src=twsrc%5Etfw">June 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 ### `Previous`
 # **February 7 2023**
-<br>
 Holy cow! A year has flown by since the last update. We are happy to share that some very important features for the app are finally working. The ability to record and share dares filmed using the app now works without having to use your smartphones screen record function. We have also added some some quality of life improvements for generating new decks.
 <br>
 We are also excited to announce that we will be participating at GOBfest 2023 in Edmonton this March as part of the protoype alley! More info here: https://www.gobfest.ca/
 
 # **February 8 2022**
-<br>
 Happy belated new year everyone! Not much for updates other than housekeeping as we prepare for our beta launch! Keep an eye out for updates via our email list and a link to download a print and play from our website in the coming months!
 
 # **December 14 2021**
-<br>
 We have finally recieved a brand new deck of cards that integrates the new AR marker design! This new design is more reliable with scanning and each design is more unique. We also just got our Testflight build up and running. Expect more updates and a Beta Print and Play version soon!
 <br>
 

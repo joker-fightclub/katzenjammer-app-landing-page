@@ -5,22 +5,22 @@ include_in_header: true
 ---
 
 **Last Updated**  
-February 7 2023
+March 4 2024
 
 # About Katzenjammer
 
- Katzenjammer is a one-of-a-kind card game that blends the excitement of Uno, Truth or Dare, and Yu-Gi-Oh. The game is played using a deck of cards that contain dares and action cards, with a unique twist - the dares are created by the players themselves.
+ Katzenjammer is a one-of-a-kind card game that blends the excitement of Uno, Truth or Dare, and Yu-Gi-Oh. The game is played with decks of cards that contain dares and action cards, with a unique twist - the dares are created by the players themselves.
 
 
 ## How it works
 
-In Katzenjammer, players take turns selecting cards from their hand in a high-stakes betting match. Each card corresponds to a dare, the severity of which is indicated by its color. However, the players don't know what the dare is until they use a custom mobile app with Augmented Reality to reveal it.
+The goal of Katzenjammer is to get other players to perform dares while minimizing the number of dares you have to perform yourself.
 
-What sets Katzenjammer apart is that the dares on the cards are input by the players using a companion app. This means that the stakes are as high as your friends' respect for your dignity allows, and the embarrassment factor is off the charts.
+To start, players are dealt cards from a **Dare Deck**. Each card corresponds to a dare, the severity of which is indicated by its color. However, the players don't know what dare is on each card is until they use a custom mobile app with Augmented Reality to reveal it. In each round of gameplay, players try to get rid of cards by betting them. Players place the cards they want to get rid of from their hand onto the table. After bets are locked in, a card is pulled from the **Action Deck**, resulting in a player getting rid of cards they bet, drawing more cards, or performing the dares on the cards they bet. Rounds are played until all dares have been performed or the **STOP** card is pulled from the **Action Deck**.
 
-One of the unique features of the companion app is the ability to create different collections of dares, also known as dare decks. This allows the game to never get stale, and it can adapt to different playing scenarios. For example, you could have a dare deck for a relaxing Friday night with friends or one specifically tailored to a camping trip, with dares that take into account the outdoor environment.
+What sets Katzenjammer apart is that the dares on the cards are input by the players using a companion app. This means that the stakes are as high as your friends' respect for your dignity allows, and the embarrassment factor is off the charts. The companion app also has the ability to create or load multiple **Dare Decks**. This ensures the game never gets stale, and it can adapt to different playing scenarios. For example, you could have a **Dare Deck** for a relaxing Friday night with friends or one specifically tailored to a camping trip, with dares that take into account the outdoor environment.
 
-Each player starts with two **Monster Cards** that can be used throughout the game to sabotage opponents or protect themselves from the consequences of the dares. The game ends when the draw deck is empty, and players must perform the dares on the cards left in their hand.
+Within the **Dare Deck** there are also **Monster Cards** that can be used throughout the game to sabotage opponents or protect players from the consequences of certain dares. The game ends when the draw deck is empty, and players must perform the dares on the cards left in their hand.
 
 Katzenjammer is a hilarious and interactive card game that will have you and your friends laughing, cringing, and having a great time. Get ready for the ultimate player-driven game night!
 
@@ -31,11 +31,9 @@ If you're a fan of card games we would love to have you subscribe to our email l
 
 
 ## About Katzenjammer Games Ltd.
-Katzenjammer Games is an indie game studio that seeks to combine the social interaction of tabletop cards games with Augmented Reality to create new unique social experiences for our users.
+We are an indie game studio that seeks to combine the social interaction of tabletop cards games with Augmented Reality to create new unique social experiences for our users. We are bridging the gap between physical media and emerging technology to maximize fun.
 
 The company’s sole project (for now…) is its card game of the same namesake: **Katzenjammer!**
-
-The idea for this project sprung up from the initial pandemic lockdowns in March 2020, during which the Katzenjammer team spent its free time learning to develop AR and mobile apps.
 
 
 **Please note:** This project is in early development and there will be much more information available soon!

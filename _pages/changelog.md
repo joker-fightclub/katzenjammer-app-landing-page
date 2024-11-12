@@ -4,7 +4,7 @@ title: What's New
 include_in_header: true
 ---
 **Last Updated**  
-October 1 2023
+November 11 2024
 
 # Updates
 Here you will find progress updates regarding our game. Any new changes will be shared here.
@@ -48,12 +48,15 @@ align: left;
 <br>
 
 ### `Latest`
+# **November 11 2024**
+We have a lot in store for those paying attention to our project! Be sure to follow us *@katzenjammerG* on twitter.
+
+### `Previous`
 # **October 1 2023**
 What a bustling summer we've had! We thoroughly enjoyed attending various conventions, including Game Con Canada in June. The feedback we've received about our game has been invaluable. We're eager to reach out to our email subscribers soon to recruit beta testers.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Huge thanks to everyone who helped put together this event and to everyone who showed up to support indie game developers! <a href="https://t.co/qUoumDgzuL">https://t.co/qUoumDgzuL</a></p>&mdash; Katzenjammer Games (@KatzenjammerG) <a href="https://twitter.com/KatzenjammerG/status/1673770544838365190?ref_src=twsrc%5Etfw">June 27, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
-### `Previous`
 # **February 7 2023**
 Holy cow! A year has flown by since the last update. We are happy to share that some very important features for the app are finally working. The ability to record and share dares filmed using the app now works without having to use your smartphones screen record function. We have also added some some quality of life improvements for generating new decks.
 <br>

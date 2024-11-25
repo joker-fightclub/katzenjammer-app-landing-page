@@ -14,4 +14,4 @@ For zlib compression in browser: [Pako](https://github.com/nodeca/pako)
 
 All game assets were developed by and are owned by Katzenjammer Games Ltd.
 
-The MIT license for this website does not include the use of Katzenjammer application and game components, Katzenjammer trademarks, or Katzenjammer Games Ltd. IP. 
+The MIT license for this website does not include the use of the Katzenjammer application and/or Kaztenjammer game components, Katzenjammer trademarks, or Katzenjammer Games Ltd. IP. 

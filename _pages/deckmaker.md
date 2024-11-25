@@ -155,10 +155,10 @@ include_in_header: true
         const easyDares = Array.from({ length: 12 }, (_, i) => document.getElementById(`easy${i + 1}`).value.trim());
         const mediumDares = Array.from({ length: 12 }, (_, i) => document.getElementById(`medium${i + 1}`).value.trim());
         const hardDares = Array.from({ length: 12 }, (_, i) => document.getElementById(`hard${i + 1}`).value.trim());
-         console.log(easyDares);
+        // console.log(easyDares);
         // Step 2: Prepare the CSV string
         const compiledString = compileDaresIntoString(easyDares, mediumDares, hardDares, deckName || 'Random Deck');
-        console.log(compiledString);
+        // console.log(compiledString);
          // Step 3: Convert string to UTF-8 encoded data (Uint8Array)
         const utf8Encoder = new TextEncoder();
         const inputData = utf8Encoder.encode(compiledString);

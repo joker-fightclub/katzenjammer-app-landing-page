@@ -1,0 +1,1146 @@
+---
+title: Play
+include_in_header: true
+---
+
+{% include head.html %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katzenjammer</title>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+        "mindar-image-three": "https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-three.prod.js"
+      }
+    }
+  </script>
+
+  <style>
+    /* Base styles with updated color palette */
+    :root {
+      --blue: #3689C6;
+      --monster-green: #458C61;
+      --green: #2F8064;
+      --red: #971B21;
+      --yellow: #F2C63D;
+      --beige: #FCF0F0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background-color: var(--beige);
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      align-items: center;
+      /* Center content horizontally */
+      justify-content: flex-start;
+      /* Start from the top */
+    }
+
+    .section {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      /* Limit width on large screens */
+    }
+
+    /* Colors for category sections */
+    .easy-section {
+      background-color: #e0f7e9;
+      color: var(--monster-green);
+      border: 1px solid #66bb6a;
+    }
+
+    .medium-section {
+      background-color: #fff8e1;
+      color: var(--yellow);
+      border: 1px solid #fdd835;
+    }
+
+    .hard-section {
+      background-color: #ffebee;
+      color: var(--red);
+      border: 1px solid #e57373;
+    }
+
+    #qr-section {
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      max-width: 600px;
+      /* Limit width on large screens */
+      margin: 0 auto;
+      /* Center the section */
+      box-sizing: border-box;
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    .upload-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px 5px;
+      background-color: var(--blue);
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+      width: 200px;
+      text-align: center;
+      box-sizing: border-box;
+      border: none;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      height: 50px;
+    }
+
+    .upload-btn:hover {
+      background-color: #2b6d9f;
+      /* Darker blue for hover */
+    }
+
+    #qr-video {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      margin: 15px auto;
+      /* Center the video */
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      display: none;
+      /* Prevent fullscreen behavior on iOS */
+      playsinline: true;
+      webkit-playsinline: true;
+    }
+
+    /* Add app header styling to match the screenshot */
+    .app-header {
+      display: none;
+      /* Hide the blue header bar */
+    }
+
+    .app-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .ar-app-title-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .app-icon {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .ar-app-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+    }
+
+    .app-title {
+      color: var(--blue);
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .ar-app-title {
+      color: var(--blue);
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .app-subtitle {
+      color: var(--blue);
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      color: var(--blue);
+      text-align: center;
+      margin: 25px 0 15px 0;
+    }
+
+    #deck-info {
+      padding: 15px;
+      margin: 15px auto;
+      /* Center the info box */
+      background-color: white;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      /* Limit width on large screens */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    #start-ar {
+      padding: 12px 24px;
+      background-color: var(--green);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: background-color 0.2s ease;
+      min-width: 200px;
+    }
+
+    #start-ar:hover {
+      background-color: #266752;
+      /* Darker green for hover */
+    }
+
+    #start-ar:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    /* Adjustments for AR container */
+    #ar-container {
+      position: relative;
+      width: 100%;
+      flex-grow: 1;
+      display: none;
+    }
+
+    #ar-overlay {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      /* Center horizontally */
+      z-index: 1000;
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background-color: var(--red);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #7d161b;
+      /* Darker red for hover */
+    }
+
+    .status {
+      margin-top: 10px;
+      font-style: italic;
+      font-weight: 500;
+      display: none;
+      /* Hide the status text */
+    }
+
+    h1,
+    h3 {
+      text-align: center;
+      color: var(--blue);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    /* Ensure proper spacing and sizing on mobile */
+    @media (max-width: 480px) {
+
+      body,
+      html {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      #app {
+        min-height: 100%;
+        height: auto;
+      }
+
+      .app-header h1 {
+        font-size: 20px;
+      }
+
+      .app-title {
+        font-size: 26px;
+        margin: 8px 0;
+      }
+
+      .app-subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: 22px;
+        margin: 15px 0 10px 0;
+      }
+
+      #qr-section {
+        padding: 15px 10px;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .video-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        width: 100%;
+      }
+
+      #qr-video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+        /* Portrait orientation for mobile */
+        max-height: 50vh;
+        object-fit: cover;
+        margin: 0;
+      }
+
+      .upload-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 80%;
+        max-width: 250px;
+        margin: 8px auto;
+        display: block;
+        height: 45px;
+      }
+
+      .buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      #deck-info {
+        padding: 12px;
+        margin: 12px auto;
+        width: 100%;
+      }
+
+      #start-ar {
+        width: 80%;
+        max-width: 250px;
+        margin: 12px auto;
+        display: block;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 8px 0;
+      }
+    }
+
+    /* Adjustments for larger screens */
+    @media (min-width: 992px) {
+      #qr-section {
+        padding: 30px;
+        max-width: 800px;
+      }
+
+      .buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- QR Code Scanner Section -->
+    <div id="qr-section">
+      
+      <div class="app-title-container" onclick="location.href='/';">
+        <img src="../assets/icon.png" alt="Katzenjammer App Icon" class="app-icon">
+        <div class="app-title">KATZENJAMMER</div>
+      </div>
+      <div class="app-subtitle">YOUR FRIENDS. YOUR RULES. YOUR GAME.</div>
+
+      <div class="section-subtitle">Upload a QR code or scan one with your camera to load a dare deck</div>
+
+      <div class="buttons-container">
+        <label for="file-input" class="upload-btn">Upload QR Code</label>
+        <input type="file" id="file-input" accept="image/*" />
+        <button id="start-scan" class="upload-btn">Scan with Camera</button>
+      </div>
+
+      <div class="video-container">
+        <video id="qr-video" playsinline webkit-playsinline></video>
+      </div>
+
+      <div id="deck-info" style="display: none;">
+        <h3 style="color: var(--blue);">Deck: <span id="deck-name">-</span></h3>
+        <p>Status: <span id="deck-status">Ready to scan</span></p>
+        <button id="start-ar" disabled>Start AR Scanner</button>
+      </div>
+    </div>
+
+    <!-- AR Container -->
+    <div id="ar-container">
+      <div id="ar-overlay">
+        <!-- <div class="ar-app-title-container">
+          <img src="../assets/icon.png" alt="Katzenjammer App Icon" class="ar-app-icon">
+          <div class="ar-app-title">KATZENJAMMER</div>
+        </div> -->
+        <button class="back-btn" id="stop-ar">Exit AR</button>
+        <div class="status" id="ar-status">Waiting for target...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+
+  <script type="module">
+    import * as THREE from "three";
+    import { MindARThree } from "mindar-image-three";
+
+    // Global variables
+    let deckName = '';
+    let easyDares = [];
+    let mediumDares = [];
+    let hardDares = [];
+    let allDares = [];
+    let mindarThree;
+    let videoStream = null;
+    let qrScanning = false;
+
+    // DOM Elements
+    const fileInput = document.getElementById('file-input');
+    const startScanBtn = document.getElementById('start-scan');
+    const qrVideo = document.getElementById('qr-video');
+    const deckInfoDiv = document.getElementById('deck-info');
+    const deckNameSpan = document.getElementById('deck-name');
+    const deckStatusSpan = document.getElementById('deck-status');
+    const startARBtn = document.getElementById('start-ar');
+    const qrSection = document.getElementById('qr-section');
+    const arContainer = document.getElementById('ar-container');
+    const stopARBtn = document.getElementById('stop-ar');
+    const arStatusDiv = document.getElementById('ar-status');
+
+    // Function to parse QR code data (reverse of the process in deckmaker.md)
+    function parseQRCodeData(base64String) {
+      try {
+        // Step 1: Decode the Base64 string to compressed binary data
+        const binaryString = atob(base64String);
+        const compressedData = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          compressedData[i] = binaryString.charCodeAt(i);
+        }
+
+        // Step 2: Decompress the data using Pako (inflate the deflated data)
+        const decompressedData = pako.inflateRaw(compressedData);
+
+        // Step 3: Convert the decompressed Uint8Array back to a string
+        const textDecoder = new TextDecoder('utf-8');
+        const csvString = textDecoder.decode(decompressedData);
+
+        // Step 4: Parse the CSV string
+        console.log("Decoded CSV:", csvString);
+
+        // Split by commas, but handle the special case where the first item (deck name) ends with a comma and newline
+        const allValues = csvString.split(/,\s*/);
+
+        // Extract the deck name (first value)
+        // The deck name might contain a newline at the end
+        deckName = allValues[0].replace(/[\r\n]+$/, '').trim();
+
+        // Remove the deck name from the array
+        const allDaresArray = allValues.slice(1).map(dare => dare.trim()).filter(dare => dare !== '');
+
+        console.log("Deck name:", deckName);
+        console.log("All dares array:", allDaresArray);
+        console.log("Total dares found:", allDaresArray.length);
+
+        // We expect 36 dares total (12 easy, 12 medium, 12 hard)
+        // But we'll be flexible and work with what we have
+        const totalDares = allDaresArray.length;
+        const daresPerCategory = Math.floor(totalDares / 3);
+
+        // Distribute dares evenly among categories
+        easyDares = allDaresArray.slice(0, daresPerCategory);
+        mediumDares = allDaresArray.slice(daresPerCategory, daresPerCategory * 2);
+        hardDares = allDaresArray.slice(daresPerCategory * 2);
+
+        // Combine all dares into a single array for easier access by index
+        allDares = [...easyDares, ...mediumDares, ...hardDares];
+
+        return {
+          name: deckName,
+          easy: easyDares,
+          medium: mediumDares,
+          hard: hardDares
+        };
+      } catch (error) {
+        console.error("Error parsing QR code:", error);
+        throw error;
+      }
+    }
+
+    // Function to handle successful QR code scan
+    function handleQRCodeSuccess(data) {
+      try {
+        stopQRScanner();
+
+        console.log("Raw QR data:", data);
+        const deckData = parseQRCodeData(data);
+        console.log("Deck loaded:", deckData);
+
+        // Update UI
+        deckNameSpan.textContent = deckData.name;
+        deckInfoDiv.style.display = 'block';
+        deckStatusSpan.textContent = `Loaded with ${deckData.easy.length} easy, ${deckData.medium.length} medium, and ${deckData.hard.length} hard dares`;
+        startARBtn.disabled = false;
+
+      } catch (error) {
+        deckStatusSpan.textContent = "Error: " + error.message;
+        deckInfoDiv.style.display = 'block';
+        console.error("QR code parsing error:", error);
+      }
+    }
+
+    // Function to process an uploaded QR code image
+    async function processQRCodeImage(imageData) {
+      try {
+        console.log("Processing uploaded image...");
+        deckStatusSpan.textContent = "Processing image...";
+        deckInfoDiv.style.display = 'block';
+
+        // Create a new image element
+        const image = new Image();
+
+        // Set up a promise to wait for the image to load
+        await new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = () => reject(new Error("Failed to load image"));
+          image.src = imageData;
+        });
+
+        console.log("Image loaded, dimensions:", image.width, "x", image.height);
+
+        // Create a canvas to draw the image
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        // Set canvas dimensions to match image
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        // Draw the image on the canvas
+        context.drawImage(image, 0, 0);
+
+        // Get image data for QR code processing
+        const imageDataObj = context.getImageData(0, 0, canvas.width, canvas.height);
+
+        console.log("Attempting to find QR code in image...");
+
+        // Try to find a QR code in the image
+        const qrCode = jsQR(imageDataObj.data, imageDataObj.width, imageDataObj.height, {
+          inversionAttempts: "dontInvert",  // Try without inverting first
+        });
+
+        if (qrCode) {
+          console.log("QR code found in image!");
+          handleQRCodeSuccess(qrCode.data);
+        } else {
+          // Try again with inversion
+          console.log("No QR code found, trying with inversion...");
+          const qrCodeInverted = jsQR(imageDataObj.data, imageDataObj.width, imageDataObj.height, {
+            inversionAttempts: "invertFirst",  // Try inverting first
+          });
+
+          if (qrCodeInverted) {
+            console.log("QR code found in inverted image!");
+            handleQRCodeSuccess(qrCodeInverted.data);
+          } else {
+            // If still no QR code is found, try with the original image but different settings
+            console.log("Still no QR code found, trying with different settings...");
+
+            // Try with both inversion attempts
+            const qrCodeBoth = jsQR(imageDataObj.data, imageDataObj.width, imageDataObj.height, {
+              inversionAttempts: "both",  // Try both normal and inverted
+            });
+
+            if (qrCodeBoth) {
+              console.log("QR code found with 'both' inversion setting!");
+              handleQRCodeSuccess(qrCodeBoth.data);
+            } else {
+              // Last resort: try preprocessing the image
+              console.log("Preprocessing image for QR detection...");
+
+              // Enhance contrast
+              for (let i = 0; i < imageDataObj.data.length; i += 4) {
+                // Simple threshold to make black and white more distinct
+                const avg = (imageDataObj.data[i] + imageDataObj.data[i + 1] + imageDataObj.data[i + 2]) / 3;
+                const val = avg < 128 ? 0 : 255;
+                imageDataObj.data[i] = val;
+                imageDataObj.data[i + 1] = val;
+                imageDataObj.data[i + 2] = val;
+              }
+
+              context.putImageData(imageDataObj, 0, 0);
+
+              // Try one last time with the preprocessed image
+              const enhancedData = context.getImageData(0, 0, canvas.width, canvas.height);
+              const qrCodeEnhanced = jsQR(enhancedData.data, enhancedData.width, enhancedData.height, {
+                inversionAttempts: "both",
+              });
+
+              if (qrCodeEnhanced) {
+                console.log("QR code found in preprocessed image!");
+                handleQRCodeSuccess(qrCodeEnhanced.data);
+              } else {
+                console.log("Failed to find QR code in image after all attempts");
+                deckStatusSpan.textContent = "Error: Could not find QR code in image";
+                deckInfoDiv.style.display = 'block';
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error processing image:", error);
+        deckStatusSpan.textContent = "Error processing image: " + error.message;
+        deckInfoDiv.style.display = 'block';
+      }
+    }
+
+    // Function to start QR code scanner using the camera
+    async function startQRScanner() {
+      try {
+        // Request camera access directly - browser will handle permission dialog
+        videoStream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: "environment",
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          }
+        });
+
+        qrVideo.srcObject = videoStream;
+        qrVideo.style.display = 'block';
+        // Use muted and playsinline attributes to prevent fullscreen on iOS
+        qrVideo.muted = true;
+        qrVideo.setAttribute('playsinline', true);
+        qrVideo.setAttribute('webkit-playsinline', true);
+        qrVideo.play();
+        qrScanning = true;
+
+        startScanBtn.textContent = "Stop Scanning";
+        deckStatusSpan.textContent = "Scanning for QR code...";
+        deckInfoDiv.style.display = 'block';
+
+        // Start scanning frames for QR codes
+        requestAnimationFrame(scanQRCode);
+      } catch (error) {
+        console.error("Error accessing camera:", error);
+
+        // Handle specific permission errors
+        if (error.name === 'NotAllowedError' || error.name === 'PermissionDeniedError') {
+          deckStatusSpan.textContent = "Error: Camera permission denied";
+        } else if (error.name === 'NotFoundError' || error.name === 'DevicesNotFoundError') {
+          deckStatusSpan.textContent = "Error: No camera found on this device";
+        } else if (error.name === 'NotReadableError' || error.name === 'TrackStartError') {
+          deckStatusSpan.textContent = "Error: Camera is already in use by another application";
+        } else {
+          deckStatusSpan.textContent = "Error: Could not access camera";
+        }
+
+        deckInfoDiv.style.display = 'block';
+      }
+    }
+
+    // Function to stop QR code scanner
+    function stopQRScanner() {
+      if (videoStream) {
+        videoStream.getTracks().forEach(track => track.stop());
+        videoStream = null;
+        qrVideo.style.display = 'none';
+        qrScanning = false;
+        startScanBtn.textContent = "Scan with Camera";
+      }
+    }
+
+    // Function to scan video frames for QR codes
+    function scanQRCode() {
+      if (!qrScanning) return;
+
+      try {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        // Make sure video is playing and has dimensions
+        if (qrVideo.videoWidth === 0 || qrVideo.videoHeight === 0) {
+          // Video not ready yet
+          requestAnimationFrame(scanQRCode);
+          return;
+        }
+
+        canvas.width = qrVideo.videoWidth;
+        canvas.height = qrVideo.videoHeight;
+
+        context.drawImage(qrVideo, 0, 0, canvas.width, canvas.height);
+        const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+        // Try multiple inversion settings to improve QR detection
+        const qrCodeOptions = [
+          { inversionAttempts: "dontInvert" },
+          { inversionAttempts: "onlyInvert" },
+          { inversionAttempts: "both" }
+        ];
+
+        let qrCode = null;
+
+        // Try each option until we find a QR code
+        for (const options of qrCodeOptions) {
+          qrCode = jsQR(imageData.data, imageData.width, imageData.height, options);
+          if (qrCode) break;
+        }
+
+        if (qrCode) {
+          // QR code found
+          console.log("QR code detected in video feed!");
+          handleQRCodeSuccess(qrCode.data);
+        } else {
+          // Continue scanning
+          requestAnimationFrame(scanQRCode);
+        }
+      } catch (error) {
+        console.error("Error scanning QR code:", error);
+        requestAnimationFrame(scanQRCode);
+      }
+    }
+
+    // Function to initialize MindAR
+    async function initializeMindAR() {
+      if (!allDares || allDares.length === 0) {
+        alert("Please load a dare deck first!");
+        return;
+      }
+
+      try {
+        // Switch to AR view
+        qrSection.style.display = 'none';
+        arContainer.style.display = 'block';
+
+        // Initialize MindAR
+        mindarThree = new MindARThree({
+          container: arContainer,
+          imageTargetSrc: "../assets/targets.mind",
+          maxTrack: 1,
+        });
+
+        const { renderer, scene, camera } = mindarThree;
+
+        // Create anchors for all possible targets (assuming targets.mind has 36 targets, one for each dare)
+        for (let i = 0; i < allDares.length; i++) {
+          const anchor = mindarThree.addAnchor(i);
+          const dareText = allDares[i];
+          let categoryText;
+          let bgColor;
+
+          // Determine category based on index
+          if (i < 12) {
+            categoryText = "EASY";
+            bgColor = "#e0f7e9"; // Light green with monster-green text
+          } else if (i < 24) {
+            categoryText = "MEDIUM";
+            bgColor = "#fff8e1"; // Light yellow with yellow text
+          } else {
+            categoryText = "HARD";
+            bgColor = "#ffebee"; // Light red with red text
+          }
+
+          // Create canvas for the dare text with 1.2x the original size
+          const canvas = document.createElement("canvas");
+          canvas.width = 512 * 1.2; // Increase canvas width by 1.2x
+          canvas.height = 256 * 1.2; // Increase canvas height by 1.2x
+          const ctx = canvas.getContext("2d");
+
+          // Draw background
+          ctx.fillStyle = bgColor;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Draw border - scaled up for larger canvas
+          ctx.strokeStyle = "#000000";
+          ctx.lineWidth = 5; // Increased from 4
+          ctx.strokeRect(12, 12, canvas.width - 24, canvas.height - 24); // Adjusted for larger canvas
+
+          // Create an app icon image
+          const iconImg = new Image();
+          iconImg.src = '../assets/icon.png';
+
+          // Wait for the image to load before drawing
+          const drawCanvas = () => {
+            // Draw app icon (left aligned)
+            const iconSize = 40;
+            ctx.drawImage(iconImg, 30, 20, iconSize, iconSize);
+
+            // Draw app name (next to icon)
+            ctx.fillStyle = "#1A4971"; // Darker blue color for app name
+            ctx.font = "bold 28px Arial";
+            ctx.textAlign = "left";
+            ctx.fillText("KATZENJAMMER", 80, 47); // Position next to icon
+
+            // Add visual indicator of difficulty level (small colored circle)
+            ctx.fillStyle = i < 12 ? "#266752" : i < 24 ? "#E3A617" : "#7d161b"; // Darker versions of category colors
+            ctx.beginPath();
+            ctx.arc(canvas.width - 30, 40, 12, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw dare text - scaled up for larger canvas
+            ctx.fillStyle = "#000000"; // Reset text color to black for dare text
+            ctx.font = "38px Arial"; // Increased from 24px
+            ctx.textAlign = "center";
+
+            // Handle multi-line text
+            const maxWidth = canvas.width - 48; // Adjusted for larger canvas
+            const lineHeight = 36; // Increased from 30
+            const words = dareText.split(' ');
+            let line = '';
+            let y = 140; // Increased starting position to account for app header
+
+            for (let n = 0; n < words.length; n++) {
+              const testLine = line + words[n] + ' ';
+              const metrics = ctx.measureText(testLine);
+              const testWidth = metrics.width;
+
+              if (testWidth > maxWidth && n > 0) {
+                ctx.fillText(line, canvas.width / 2, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+              } else {
+                line = testLine;
+              }
+            }
+            ctx.fillText(line, canvas.width / 2, y);
+
+          };
+
+          // If image is already loaded, draw immediately; otherwise wait for load event
+          if (iconImg.complete) {
+            drawCanvas();
+          } else {
+            iconImg.onload = drawCanvas;
+          }
+
+          // Create texture from canvas
+          const texture = new THREE.CanvasTexture(canvas);
+          const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+          const geometry = new THREE.PlaneGeometry(1.1, 0.6);
+          const plane = new THREE.Mesh(geometry, material);
+
+          // Add mesh to the anchor group
+          anchor.group.add(plane);
+
+          // Add event handlers
+          anchor.onTargetFound = () => {
+            console.log(`Target ${i} found: ${dareText}`);
+            arStatusDiv.textContent = `Found: ${categoryText} dare`;
+          };
+
+          anchor.onTargetLost = () => {
+            console.log(`Target ${i} lost`);
+            arStatusDiv.textContent = "";
+          };
+        }
+
+        // Start MindAR
+        await mindarThree.start();
+        renderer.setAnimationLoop(() => {
+          renderer.render(scene, camera);
+        });
+
+      } catch (error) {
+        console.error("Error initializing MindAR:", error);
+        arStatusDiv.textContent = "";
+      }
+    }
+
+    // Function to stop MindAR and return to QR scanning
+    function stopMindAR() {
+      try {
+        // Stop the AR session
+        if (mindarThree) {
+          // Stop the rendering loop first
+          mindarThree.renderer.setAnimationLoop(null);
+
+          // Properly stop MindAR
+          mindarThree.stop();
+
+          // Dispose of Three.js resources
+          const { scene } = mindarThree;
+          if (scene) {
+            scene.traverse((object) => {
+              if (object.geometry) object.geometry.dispose();
+              if (object.material) {
+                if (Array.isArray(object.material)) {
+                  object.material.forEach(material => {
+                    if (material.map) material.map.dispose();
+                    material.dispose();
+                  });
+                } else {
+                  if (object.material.map) object.material.map.dispose();
+                  object.material.dispose();
+                }
+              }
+            });
+          }
+
+          // Force removal of the controller element which contains the scanline
+          const scannerElements = document.querySelectorAll('.mindar-ui-scanning');
+          scannerElements.forEach(el => el.remove());
+
+          // Remove the loading container
+          const loadingElements = document.querySelectorAll('.mindar-ui-loading');
+          loadingElements.forEach(el => el.remove());
+
+          // Remove any overlay added by MindAR
+          const overlayElements = document.querySelectorAll('.mindar-ui-overlay');
+          overlayElements.forEach(el => el.remove());
+
+          // Force removal of all video and canvas elements in the document (more thorough)
+          document.querySelectorAll('video:not(#qr-video)').forEach(video => {
+            if (video.srcObject) {
+              try {
+                const stream = video.srcObject;
+                stream.getTracks().forEach(track => track.stop());
+                video.srcObject = null;
+              } catch (e) {
+                console.error("Error stopping video stream:", e);
+              }
+            }
+            video.remove();
+          });
+
+          // Remove all canvas elements that might be part of MindAR
+          document.querySelectorAll('canvas').forEach(canvas => {
+            // Preserve any canvas we know we need
+            if (canvas.id !== 'qrcode') {
+              canvas.remove();
+            }
+          });
+
+          // Look for the container div that MindAR creates and remove it
+          document.querySelectorAll('div.mindar-ui-container').forEach(div => div.remove());
+
+          // Dispose of the renderer
+          if (mindarThree.renderer) {
+            mindarThree.renderer.dispose();
+            if (mindarThree.renderer.domElement) {
+              mindarThree.renderer.domElement.remove();
+            }
+          }
+
+          // Clear HTML content of AR container except for our overlay
+          const arOverlay = document.getElementById('ar-overlay');
+          if (arOverlay) {
+            const arOverlayClone = arOverlay.cloneNode(true);
+
+            // Completely empty the AR container
+            while (arContainer.firstChild) {
+              arContainer.removeChild(arContainer.firstChild);
+            }
+
+            // Re-add only our overlay
+            arContainer.appendChild(arOverlayClone);
+
+            // Re-bind event listener for the exit button
+            document.getElementById('stop-ar').addEventListener('click', stopMindAR);
+          }
+
+          // Clear the mindarThree object
+          mindarThree = null;
+        }
+
+        // Force garbage collection
+        if (window.gc) window.gc();
+
+        // Switch back to QR scanner view
+        arContainer.style.display = 'none';
+        qrSection.style.display = 'block';
+
+        console.log("AR session completely stopped and cleaned up");
+      } catch (error) {
+        console.error("Error during AR cleanup:", error);
+
+        // Emergency cleanup - very aggressive
+        // Remove ALL potentially problematic elements
+        [
+          '.mindar-ui-scanning',
+          '.mindar-ui-loading',
+          '.mindar-ui-overlay',
+          '.mindar-ui-container',
+          'video:not(#qr-video)',
+          'canvas:not(#qrcode)'
+        ].forEach(selector => {
+          document.querySelectorAll(selector).forEach(element => {
+            try {
+              // Stop any media streams
+              if (element.tagName === 'VIDEO' && element.srcObject) {
+                element.srcObject.getTracks().forEach(track => track.stop());
+                element.srcObject = null;
+              }
+              element.remove();
+            } catch (e) {
+              console.error(`Error removing ${selector}:`, e);
+            }
+          });
+        });
+
+        // Force clean arContainer
+        while (arContainer.firstChild) {
+          arContainer.removeChild(arContainer.firstChild);
+        }
+
+        // Recreate our overlay from scratch
+        const newOverlay = document.createElement('div');
+        newOverlay.id = 'ar-overlay';
+        newOverlay.className = 'ar-overlay';
+        newOverlay.style = 'position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background-color: rgba(255, 255, 255, 0.85); padding: 15px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.2); text-align: center; min-width: 200px;';
+
+        // Add Katzenjammer title and icon to the overlay
+        const titleContainer = document.createElement('div');
+        titleContainer.className = 'ar-app-title-container';
+
+        const appIcon = document.createElement('img');
+        appIcon.src = '../assets/icon.png';
+        appIcon.alt = 'Katzenjammer App Icon';
+        appIcon.className = 'ar-app-icon';
+
+        const appTitle = document.createElement('div');
+        appTitle.className = 'ar-app-title';
+        appTitle.textContent = 'KATZENJAMMER';
+
+        titleContainer.appendChild(appIcon);
+        titleContainer.appendChild(appTitle);
+        newOverlay.appendChild(titleContainer);
+
+        const backButton = document.createElement('button');
+        backButton.id = 'stop-ar';
+        backButton.className = 'back-btn';
+        backButton.textContent = 'Exit AR';
+        backButton.addEventListener('click', stopMindAR);
+        newOverlay.appendChild(backButton);
+
+        const statusDiv = document.createElement('div');
+        statusDiv.id = 'ar-status';
+        statusDiv.className = 'status';
+        statusDiv.style.display = 'none';
+        statusDiv.textContent = '';
+        newOverlay.appendChild(statusDiv);
+
+        arContainer.appendChild(newOverlay);
+
+        // Switch back to QR view
+        arContainer.style.display = 'none';
+        qrSection.style.display = 'block';
+      }
+    }
+
+    // Event Listeners
+    fileInput.addEventListener('change', async (event) => {
+      if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          processQRCodeImage(e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+
+    startScanBtn.addEventListener('click', () => {
+      if (qrScanning) {
+        stopQRScanner();
+      } else {
+        // Start scanner directly - browser will handle permission dialog
+        startQRScanner();
+      }
+    });
+
+    startARBtn.addEventListener('click', () => {
+      initializeMindAR();
+    });
+
+    stopARBtn.addEventListener('click', () => {
+      stopMindAR();
+    });
+
+    // Check device orientation and adjust CSS variables if needed
+    function checkOrientation() {
+      if (window.innerHeight > window.innerWidth) {
+        // Portrait mode
+        document.documentElement.style.setProperty('--button-width', '80%');
+      } else {
+        // Landscape mode
+        document.documentElement.style.setProperty('--button-width', '200px');
+      }
+    }
+
+    // Run on page load and whenever window is resized
+    window.addEventListener('load', checkOrientation);
+    window.addEventListener('resize', checkOrientation);
+  </script>
+</body>
+

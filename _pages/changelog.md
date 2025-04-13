@@ -1,7 +1,7 @@
 ---
 layout: page
 title: What's New
-include_in_header: true
+include_in_header: false
 ---
 **Last Updated**  
 November 11 2024

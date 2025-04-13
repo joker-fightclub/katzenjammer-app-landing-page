@@ -4,8 +4,6 @@ title: About
 include_in_header: true
 ---
 
-**Last Updated**  
-March 4 2024
 
 # About Katzenjammer
 

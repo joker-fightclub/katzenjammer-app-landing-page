@@ -49,6 +49,14 @@
 		"f f f f f f f f f f f f";
 }
 
+@media only screen and (max-width: 992px) {
+	.container {
+		padding-left: 0px;
+		padding-right: 0px;
+		overflow-x: hidden;
+	}
+}
+
 .subPageContainer {
 	grid-template-rows: 115px auto auto auto;
 	background-color: #fff;
@@ -397,7 +405,11 @@ nav>ul li a:active {
 @media only screen and (max-width: 992px) {
 	.contentRow {
 		grid-template-columns: 1fr;
-		gap: 30px;
+		gap: 20px;
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 
@@ -411,7 +423,7 @@ nav>ul li a:active {
 	margin-top: 68px;
 	justify-self: start;
 	padding-right: 30px;
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 
 // Right column content wrapper
@@ -423,7 +435,20 @@ nav>ul li a:active {
 
 @media only screen and (max-width: 992px) {
 	.rightColumn {
-		order: 1;
+		order: 1; // Show first on mobile
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.contentRow {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		overflow-x: hidden;
 	}
 }
 
@@ -484,10 +509,15 @@ nav>ul li a:active {
 		background-size: 260px auto;
 		background-position: center 0;
 		margin-top: 0px;
+		margin-left: 0;
+		margin-right: 0;
 		justify-content: center;
-		padding-bottom: 75px;
+		padding-bottom: 50px;
 		padding-right: 0px;
+		padding-left: 0px;
 		order: 2; // Move iPhone below product on mobile
+		width: 100%;
+		max-width: 100%;
 	}
 
 	.iphoneScreen {
@@ -513,6 +543,28 @@ nav>ul li a:active {
 
 }
 
+@media only screen and (max-width: 375px) {
+	.iphonePreview {
+		background-size: 240px auto;
+		padding-bottom: 40px;
+	}
+
+	.iphoneScreen {
+		width: 210px;
+		height: 454px;
+	}
+
+	.videoContainer {
+		width: 210px;
+		height: 454px;
+	}
+
+	.videoContainer>video {
+		width: 210px;
+		height: 454px;
+	}
+}
+
 
 // Product Section Styling
 .productSection {
@@ -528,9 +580,8 @@ nav>ul li a:active {
 
 @media only screen and (max-width: 992px) {
 	.productSection {
-		order: 1; // Show product first on mobile
 		margin-top: 0px;
-		padding: 25px;
+		padding: 25px 15px;
 	}
 }
 
@@ -613,6 +664,7 @@ nav>ul li a:active {
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		padding: 20px 15px;
 
 		.stepNumber {
 			margin-right: 0;
@@ -682,17 +734,12 @@ nav>ul li a:active {
 	font-weight: 600;
 	text-align: center;
 	margin-bottom: 30px;
-	display: none; // Hide on desktop since it's in the product section context
+	display: none; // Hidden on both desktop and mobile
 }
 
 @media only screen and (max-width: 992px) {
-	.stepsTitle {
-		display: block; // Show on mobile
-		margin-bottom: 40px;
-	}
-
 	.stepsSection {
-		margin-top: 50px;
+		margin-top: 30px;
 	}
 }
 
@@ -767,7 +814,7 @@ nav>ul li a:active {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 25px;
+		padding: 25px 15px;
 		text-align: center;
 	}
 

@@ -1,0 +1,188 @@
+<div class="productSection">
+  <div class="productInfo">
+    <h2 class="productTitle">Katzenjammer</h2>
+    <p class="productDescription">
+      Katzenjammer is the customizable, laugh-out-loud party card game where your friends become the entertainment.
+      Every round reveals ridiculous user-generated dares, off-the-wall challenges, and unpredictable prompts.
+    </p>
+  </div>
+
+  <div class="productImage">
+    <!-- You'll need to upload your product image to assets folder -->
+    <img src="assets/product-cards.png" alt="Katzenjammer Card Game">
+  </div>
+
+  <div class="buyStep">
+    <div class="stepNumber">1</div>
+    <div class="buyStepContent">
+      <div class="buyStepLeft">
+        <h3>Get the Cards</h3>
+        <p class="productPrice" id="dynamic-price">$29.99 CAD</p>
+      </div>
+      <div class="buyStepRight">
+        <!-- Shopify Buy Button Container -->
+        <div id='product-component-1733601234567'></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
+        }
+      } else {
+        loadScript();
+      }
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
+      }
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'katzenjammer-games.myshopify.com',
+          storefrontAccessToken: 'd995682901fc0a3621c5bd2198643e86',
+        });
+
+        // Try fetching with GraphQL ID format first
+        var productId = 'gid://shopify/Product/7239861338197';
+
+        client.product.fetch(productId).then(function (product) {
+          console.log('Product fetched successfully:', product);
+
+          // Get the price and currency from the product
+          var price = product.variants[0].price.amount;
+          var currencyCode = product.variants[0].price.currencyCode;
+
+          // Format the price
+          var formattedPrice = '$' + parseFloat(price).toFixed(2) + ' ' + currencyCode;
+
+          // Update the price element
+          var priceElement = document.getElementById('dynamic-price');
+          if (priceElement) {
+            priceElement.textContent = formattedPrice;
+          }
+        }).catch(function (error) {
+          console.error('Error fetching product with GraphQL ID:', error);
+
+          // Try with numeric ID as fallback
+          client.product.fetch('7239861338197').then(function (product) {
+            console.log('Product fetched with numeric ID:', product);
+
+            var price = product.variants[0].price.amount;
+            var currencyCode = product.variants[0].price.currencyCode;
+            var formattedPrice = '$' + parseFloat(price).toFixed(2) + ' ' + currencyCode;
+
+            var priceElement = document.getElementById('dynamic-price');
+            if (priceElement) {
+              priceElement.textContent = formattedPrice;
+            }
+          }).catch(function (error2) {
+            console.error('Error fetching product with numeric ID:', error2);
+            console.log('Keeping default price of $29.99 USD');
+            // Price element already has fallback value, so no change needed
+          });
+        });
+
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '7239861338197',
+            node: document.getElementById('product-component-1733601234567'),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
+            options: {
+              "product": {
+                "contents": {
+                  "img": false,
+                  "title": false,
+                  "price": false
+                },
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0px",
+                      "margin-bottom": "0px"
+                    }
+                  },
+                  "button": {
+                    "background-color": "#2f8064",
+                    "font-size": "18px",
+                    "padding-top": "17px",
+                    "padding-bottom": "17px",
+                    ":hover": {
+                      "background-color": "#2a7359"
+                    },
+                    "border-radius": "8px",
+                    ":focus": {
+                      "background-color": "#2a7359"
+                    }
+                  }
+                },
+                "text": {
+                  "button": "Add to Cart"
+                }
+              },
+              "cart": {
+                "styles": {
+                  "button": {
+                    "background-color": "#2f8064",
+                    ":hover": {
+                      "background-color": "#2a7359"
+                    },
+                    "border-radius": "8px",
+                    ":focus": {
+                      "background-color": "#2a7359"
+                    }
+                  }
+                }
+              },
+              "toggle": {
+                "styles": {
+                  "toggle": {
+                    "background-color": "#2f8064",
+                    ":hover": {
+                      "background-color": "#2a7359"
+                    },
+                    ":focus": {
+                      "background-color": "#2a7359"
+                    }
+                  }
+                }
+              }
+            },
+          });
+        });
+      }
+    })();
+    /*]]>*/
+  </script>
+</div>
+
+<!-- Steps Section -->
+<div class="stepsSection">
+  <h2 class="stepsTitle">How to Play</h2>
+
+  <div class="step">
+    <div class="stepNumber">2</div>
+    <div class="stepContent">
+      <h3>Reveal Dares Using the Companion App</h3>
+      <p>Download the companion app to scan cards and reveal dares using AR technology.</p>
+      <div class="appLinks">
+        <a class="appStoreLink" href="{{site.appstore_link}}">
+          <img class="appStore" src="assets/appstore.png" alt="Download on App Store">
+        </a>
+        <a class="webplayLink" href="{{site.webplay_link | relative_url}}">
+          <img class="appStore" src="assets/itchio_badge.png" alt="Play on Web">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,28 +36,29 @@ youtube_username                          :
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
 
-  - title                                 : Card Game + Tech Magic
-    description                           : Katzenjammer is a card game that can only be described as a cosmic gumbo of Uno, Truth or dare, and a misinterpretation of how Yu-Gi-Oh works. Oh, and it also uses Augmented Reality for some reason.
+
+  - title                                 : A Party Card Game with a Twist
+    description                           : Katzenjammer blends classic card game strategy with the spontaneity of dares. Inspired by party favorites you already know, it adds a modern layer of surprise through its companion app.
     fontawesome_icon_name                 : magic
     
-  - title                                 : A Brand New Party Game Experience
-    description                           : Unlike similar party games, where the dares on the cards are soft to avoid liability, we put the responsibility on our players to not kill themselves. You create your own dares right in the app. No external servers needed. 
+  - title                                 : Player-Created Dares
+    description                           : Unlike traditional party games, Katzenjammer lets players create their own dares directly in the app. You control the tone, intensity, and humor. No internet connection or external servers required.
     fontawesome_icon_name                 : mobile
 
-  - title                                 : Augmented Reality
-    description                           : Use the power of Augmented Reality to play your game. With private inputs no one knows what dares everyone else wrote until you view the cards through the app.
+  - title                                 : Augmented Reality Gameplay
+    description                           : Use Augmented Reality to reveal dares on your cards. Dares stay hidden from other players until viewed through the app, keeping every round suspenseful and fair.
     fontawesome_icon_name                 : play-circle
 
-  - title                                 : Capture your Memories
-    description                           : Record your games with ease. Capture the craziest moments from your game and share them with the friend who bailed.
+  - title                                 : Capture the Moment
+    description                           : Record and save memorable moments from your game nights. Relive the highlights or share them later with friends who couldn’t make it.
     fontawesome_icon_name                 : sync
 
-  - title                                 : Easy to Tweak
-    description                           : Create new decks so your game never gets stale. Depending on who's playing, you can select the type of memories you want to make. 
+  - title                                 : Custom Dare Decks
+    description                           : Create and switch between different dare decks to match your group or occasion. From relaxed game nights to themed events, Katzenjammer adapts to how you want to play.
     fontawesome_icon_name                 : adjust
   
-  - title                                 : Feature List
-    description                           : We are consistently improving gameplay and app functionality. New AR gimmicks always being added. No need to buy a new deck with every update.
+  - title                                 : Always Improving
+    description                           : The app continues to evolve with gameplay refinements and new AR features. Updates enhance your experience without requiring you to buy a new physical deck.
     fontawesome_icon_name                 : star
 
   - title                                 : #Smart App Banner

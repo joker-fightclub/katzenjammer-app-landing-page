@@ -7,3 +7,6 @@ Gemfile.lock
 _pages/AR.md
 assets/combined_badge.kra~
 .DS_Store
+.env
+.netlify
+node_modules

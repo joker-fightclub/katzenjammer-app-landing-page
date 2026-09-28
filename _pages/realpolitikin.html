@@ -222,6 +222,32 @@ title: Realpolitikin
 			box-shadow: 0 16px 36px var(--rp-shadow-strong);
 		}
 
+		.rp-store-badges {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			flex-wrap: wrap;
+		}
+
+		.rp-dispatch .rp-store-badges {
+			margin: 4px 0 16px;
+		}
+
+		.rp-store-badges a {
+			display: block;
+			transition: transform 180ms ease;
+		}
+
+		.rp-store-badges a:hover {
+			transform: translateY(-1px);
+		}
+
+		.rp-store-badges img {
+			display: block;
+			height: 52px;
+			width: auto;
+		}
+
 		.rp-cta-note {
 			font-size: 0.85rem;
 			color: var(--rp-ink-faint);
@@ -426,7 +452,7 @@ title: Realpolitikin
 			</a>
 			<nav>
 				<a href="#features">Features</a>
-				<a href="#dispatch">Status</a>
+				<a href="#dispatch">Download</a>
 				<a href="mailto:{{ site.email_address }}?subject=Realpolitikin">Contact</a>
 				<a href="{{ '/realpolitikin/privacy/' | relative_url }}">Privacy</a>
 				<a class="rp-back" href="{{ '/' | relative_url }}">Katzenjammer Games</a>
@@ -439,7 +465,7 @@ title: Realpolitikin
 		<section class="rp-hero">
 			<div class="wrap rp-hero-grid">
 				<div>
-					<span class="rp-eyebrow">Coming soon to iOS &amp; Android</span>
+					<span class="rp-eyebrow">Now available on iOS &amp; Android</span>
 					<h1 class="rp-title">Realpolitikin</h1>
 					<p class="rp-tagline">Seven powers. One map. No dice.</p>
 					<p class="rp-lede">
@@ -449,10 +475,14 @@ title: Realpolitikin
 						can trust.
 					</p>
 					<div class="rp-cta-row">
-						<a class="rp-btn" href="mailto:{{ site.email_address }}?subject=Realpolitikin%20Early%20Access">
-							Request Early Access
-						</a>
-						<span class="rp-cta-note">We'll email you when the first games go live.</span>
+						<div class="rp-store-badges">
+							<a href="https://apps.apple.com/app/realpolitikin/id6762107866" target="_blank" rel="noopener">
+								<img src="{{ '/assets/appstore.png' | relative_url }}" alt="Download on the App Store">
+							</a>
+							<a href="https://play.google.com/store/apps/details?id=com.katzenjammer.games.realpolitikin" target="_blank" rel="noopener">
+								<img src="{{ '/assets/playstore.png' | relative_url }}" alt="Get it on Google Play">
+							</a>
+						</div>
 					</div>
 				</div>
 				<div class="rp-crest">
@@ -523,19 +553,25 @@ title: Realpolitikin
 		<section id="dispatch">
 			<div class="wrap">
 				<p class="rp-kicker">From the Bureau</p>
-				<h2 class="rp-heading">Currently in the field</h2>
+				<h2 class="rp-heading">Now in the field</h2>
 				<div class="rp-dispatch">
-					<span class="rp-dispatch-tag">In Development</span>
+					<span class="rp-dispatch-tag">Out Now</span>
 					<div>
 						<p>
-							<strong>Realpolitikin is under active development</strong> and not yet available in
-							the App Store or Google Play. We're finishing multiplayer adjudication and running
-							internal games before opening things up more broadly.
+							<strong>Realpolitikin is out now</strong> on the App Store and Google Play. Download it,
+							gather six rivals — or take on the bots — and see whose alliances hold.
 						</p>
+						<div class="rp-store-badges">
+							<a href="https://apps.apple.com/app/realpolitikin/id6762107866" target="_blank" rel="noopener">
+								<img src="{{ '/assets/appstore.png' | relative_url }}" alt="Download on the App Store">
+							</a>
+							<a href="https://play.google.com/store/apps/details?id=com.katzenjammer.games.realpolitikin" target="_blank" rel="noopener">
+								<img src="{{ '/assets/playstore.png' | relative_url }}" alt="Get it on Google Play">
+							</a>
+						</div>
 						<p>
-							If you'd like to hear the moment early access opens — or you're interested in
-							testing a game with us directly — send a note to
-							<a href="mailto:{{ site.email_address }}?subject=Realpolitikin%20Early%20Access">{{ site.email_address }}</a>.
+							Found a bug or have feedback? Send a cable to
+							<a href="mailto:{{ site.email_address }}?subject=Realpolitikin%20Feedback">{{ site.email_address }}</a>.
 						</p>
 					</div>
 				</div>

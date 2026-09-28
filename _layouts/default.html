@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="rightColumn">
-                        {% include shopify-product.html %}
+                        {% include product.html %}
                     </div>
                 </div>
 
@@ -45,6 +45,10 @@
             </div>
         </div>
     </div>
+
+    {% if site.store_open %}
+    {% include cart.html %}
+    {% endif %}
 </body>
 
 </html>

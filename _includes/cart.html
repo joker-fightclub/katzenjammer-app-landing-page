@@ -1,0 +1,245 @@
+<!-- Cart Drawer -->
+<div class="cartOverlay" id="cart-overlay" hidden></div>
+<aside class="cartDrawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cartHeader">
+    <h2>Your Cart</h2>
+    <button type="button" class="cartClose" id="cart-close" aria-label="Close cart"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cartItems" id="cart-items"></div>
+  <div class="cartFooter">
+    <label class="cartShipTo">
+      <span>Ship to</span>
+      <select id="cart-ship-to">
+        <option value="CA">Canada</option>
+        <option value="INTL">Outside Canada</option>
+      </select>
+    </label>
+
+    <div id="cart-canada">
+      <div class="cartRow"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+      <p class="cartNote">$9.99 flat rate shipping is added at checkout.</p>
+      <button type="button" class="cartCheckoutButton" id="cart-checkout">Checkout</button>
+      <p class="cartStatus" id="cart-status"></p>
+    </div>
+
+    <div id="cart-international" hidden>
+      <p class="cartNote">Orders outside Canada are printed and shipped by The Game Crafter. Prices and shipping are shown on their site.</p>
+      {% if site.gamecrafter_link and site.gamecrafter_link != '' %}
+      <a class="cartCheckoutButton" href="{{ site.gamecrafter_link }}" rel="noopener">Order on The Game Crafter</a>
+      {% else %}
+      <button type="button" class="cartCheckoutButton" disabled>International orders coming soon</button>
+      {% endif %}
+    </div>
+  </div>
+</aside>
+
+<script type="text/javascript">
+  (function () {
+    // Display info only; the real prices are set in netlify/functions/create-checkout-session.mjs
+    var PRODUCTS = {
+      'katzenjammer-deck': { name: 'Katzenjammer Card Game', price: 29.99, image: '{{ "/assets/product-cards.png" | relative_url }}' }
+    };
+    var MAX_QUANTITY = 10;
+    var STORAGE_KEY = 'katzenjammer-cart';
+    var SHIP_TO_KEY = 'katzenjammer-ship-to';
+
+    var drawer = document.getElementById('cart-drawer');
+    var overlay = document.getElementById('cart-overlay');
+    var itemsEl = document.getElementById('cart-items');
+    var subtotalEl = document.getElementById('cart-subtotal');
+    var checkoutButton = document.getElementById('cart-checkout');
+    var statusEl = document.getElementById('cart-status');
+    var countEls = document.querySelectorAll('.cartCount');
+    var shipToSelect = document.getElementById('cart-ship-to');
+    var canadaSection = document.getElementById('cart-canada');
+    var internationalSection = document.getElementById('cart-international');
+
+    var cart = loadCart();
+
+    function loadCart() {
+      try {
+        var saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        return saved && typeof saved === 'object' ? saved : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveCart() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+      } catch (e) {}
+    }
+
+    function setShipTo(value, remember) {
+      shipToSelect.value = value;
+      canadaSection.hidden = value !== 'CA';
+      internationalSection.hidden = value === 'CA';
+      if (remember) {
+        try {
+          localStorage.setItem(SHIP_TO_KEY, value);
+        } catch (e) {}
+      }
+    }
+
+    function initShipTo() {
+      var saved = null;
+      try {
+        saved = localStorage.getItem(SHIP_TO_KEY);
+      } catch (e) {}
+      if (saved === 'CA' || saved === 'INTL') {
+        setShipTo(saved, false);
+        return;
+      }
+
+      // Default to Canada, then switch if the visitor appears to be elsewhere
+      setShipTo('CA', false);
+      fetch('/.netlify/functions/geo')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.country && data.country !== 'CA') setShipTo('INTL', false);
+        })
+        .catch(function () {});
+    }
+
+    shipToSelect.addEventListener('change', function () {
+      setShipTo(shipToSelect.value, true);
+    });
+
+    function formatPrice(amount) {
+      return '$' + amount.toFixed(2);
+    }
+
+    function setQuantity(id, quantity) {
+      if (quantity <= 0) {
+        delete cart[id];
+      } else {
+        cart[id] = Math.min(quantity, MAX_QUANTITY);
+      }
+      saveCart();
+      render();
+    }
+
+    function render() {
+      var subtotal = 0;
+      var count = 0;
+      itemsEl.innerHTML = '';
+
+      Object.keys(cart).forEach(function (id) {
+        var product = PRODUCTS[id];
+        if (!product) return;
+        var quantity = cart[id];
+        subtotal += product.price * quantity;
+        count += quantity;
+
+        var row = document.createElement('div');
+        row.className = 'cartItem';
+        row.innerHTML =
+          '<img src="' + product.image + '" alt="">' +
+          '<div class="cartItemInfo">' +
+            '<p class="cartItemName">' + product.name + '</p>' +
+            '<p class="cartItemPrice">' + formatPrice(product.price) + ' CAD</p>' +
+            '<div class="cartQuantity">' +
+              '<button type="button" data-action="decrease" aria-label="Decrease quantity">−</button>' +
+              '<span>' + quantity + '</span>' +
+              '<button type="button" data-action="increase" aria-label="Increase quantity">+</button>' +
+              '<button type="button" class="cartRemove" data-action="remove">Remove</button>' +
+            '</div>' +
+          '</div>';
+        row.addEventListener('click', function (e) {
+          var action = e.target.getAttribute('data-action');
+          if (action === 'increase') setQuantity(id, quantity + 1);
+          if (action === 'decrease') setQuantity(id, quantity - 1);
+          if (action === 'remove') setQuantity(id, 0);
+        });
+        itemsEl.appendChild(row);
+      });
+
+      if (!count) {
+        itemsEl.innerHTML = '<p class="cartEmpty">Your cart is empty.</p>';
+      }
+      subtotalEl.textContent = formatPrice(subtotal) + ' CAD';
+      checkoutButton.disabled = !count;
+      countEls.forEach(function (el) {
+        el.textContent = count;
+        el.hidden = !count;
+      });
+    }
+
+    function openCart() {
+      overlay.hidden = false;
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCart() {
+      overlay.hidden = true;
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+
+    document.querySelectorAll('.addToCartButton').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var id = button.getAttribute('data-product-id');
+        setQuantity(id, (cart[id] || 0) + 1);
+        openCart();
+      });
+    });
+
+    document.querySelectorAll('.cartToggle').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        openCart();
+      });
+    });
+
+    document.getElementById('cart-close').addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCart();
+    });
+
+    checkoutButton.addEventListener('click', function () {
+      checkoutButton.disabled = true;
+      statusEl.textContent = '';
+
+      var items = Object.keys(cart).map(function (id) {
+        return { id: id, quantity: cart[id] };
+      });
+
+      fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ items: items })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data.url) throw new Error([data.error, data.detail].filter(Boolean).join(': ') || 'No checkout URL');
+          window.location.href = data.url;
+        })
+        .catch(function (error) {
+          console.error('Checkout error:', error);
+          statusEl.textContent = 'Sorry, checkout could not be started. Please try again.';
+          checkoutButton.disabled = false;
+        });
+    });
+
+    // Returning from Stripe Checkout
+    var checkoutResult = new URLSearchParams(window.location.search).get('checkout');
+    if (checkoutResult === 'success') {
+      cart = {};
+      saveCart();
+    }
+    if (checkoutResult) {
+      history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+
+    initShipTo();
+    render();
+
+    if (checkoutResult === 'success') {
+      itemsEl.innerHTML = '<p class="cartEmpty">Thank you for your order! A receipt is on its way to your email.</p>';
+      openCart();
+    }
+  })();
+</script>

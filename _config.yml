@@ -8,6 +8,8 @@ appstore_link                             : #https://apps.apple.com/us/app/app-s
 playstore_link                            :                                           # Enter Google Play Store URL.
 itchio_link                               :                                           # Enter Itchio Store URL
 webplay_link                               : /play/                                        # Enter Itchio Store URL
+store_open                                : false                                     # Set to true to show Add to Cart and the Stripe checkout.
+gamecrafter_link                          :                                           # The Game Crafter shop page URL. Orders shipping outside Canada are sent here.
 #presskit_download_link                    : mailto:hello@katzenjammer-games.ca       # Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file). 
                                                                                       # Or upload your press kit file to assets and set path accordingly (e.g. "assets/your_press_kit.zip").
 
@@ -137,6 +139,11 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  - netlify
+  - .netlify
+  - node_modules
+  - package.json
+  - package-lock.json
 
 collections:
   pages:
